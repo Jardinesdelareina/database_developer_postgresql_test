@@ -200,10 +200,10 @@ with rentals_count AS (
         row_number() over (partition by store_id order by count(rental_id) desc) as rn_count_rental,
 		row_number() over (partition by store_id order by sum(amount)) as rn_sum_amount
     from (
-        select
-            s.store_id AS store_id,
-            r.rental_id AS rental_id,
-            r.rental_date::date AS rental_date,
+        select 
+	    s.store_id AS store_id, 
+	    r.rental_id AS rental_id, 
+	    r.rental_date::date AS rental_date, 
 	    p.amount as amount
         from rental r
         left join inventory i on i.inventory_id = r.inventory_id
