@@ -95,7 +95,7 @@ group by full_name;
 
 -- Задание 5. Создайте материализованное представление с запросом из предыдущего задания 
 -- и напишите запрос для обновления материализованного представления.
-create or replace materialized view behing_the_scenes as
+create materialized view behing_the_scenes as
 select
     concat_ws(' ', c.last_name, c.first_name) as full_name,
     count(r.rental_id) as count_rental
