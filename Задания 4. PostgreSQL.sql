@@ -204,7 +204,7 @@ with rentals_count AS (
             s.store_id AS store_id,
             r.rental_id AS rental_id,
             r.rental_date::date AS rental_date,
-			p.amount as amount
+	    p.amount as amount
         from rental r
         left join inventory i on i.inventory_id = r.inventory_id
         left join store s on s.store_id = i.store_id
